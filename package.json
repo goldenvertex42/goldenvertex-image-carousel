@@ -1,5 +1,5 @@
 {
-  "name": "image-carousel",
+  "name": "goldenvertex-image-carousel",
   "version": "1.0.0",
   "description": "An image carousel that can be reused for other projects",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goldenvertex42/image-carousel.git"
+    "url": "git+https://github.com/goldenvertex42/goldenvertex-image-carousel.git"
   },
   "keywords": [],
   "author": "Denver Clark <fabled93@gmail.com> (https://github.com/goldenvertex42)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goldenvertex42/image-carousel/issues"
+    "url": "https://github.com/goldenvertex42/goldenvertex-image-carousel/issues"
   },
-  "homepage": "https://github.com/goldenvertex42/image-carousel#readme",
+  "homepage": "https://github.com/goldenvertex42/goldenvertex-image-carousel#readme",
   "devDependencies": {
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.4",
