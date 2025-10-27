@@ -349,3 +349,73 @@ template {
 }
 
 /** RESET END **/
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  min-height: 100vh;      /* Ensures the body takes full viewport height */
+  margin: 0;              /* Removes default body margin */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow-button {
+  background-color: transparent; /* Button color */
+  color: black; /* Arrow color */
+  border: none;
+  padding: 10px 15px; /* Adjust padding for button size */
+  font-size: 20px; /* Adjust font size for arrow size */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.arrow-button:hover {
+  background-color: gray;
+}
+
+/* For removing extra padding and border around the arrow if needed */
+.arrow-button.clear {
+  padding: 0;
+  background: none;
+  font-size: 24px;
+}
+
+.frame.visible {
+  overflow: hidden;
+  position: relative;
+  width: 25vw;
+  height: 40vh;
+  border: 2px solid black;
+}
+
+.slider {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  height: 40vh;
+}
+
+.nav-dot {
+  width: 6px; /* Adjust size as needed */
+  height: 6px; /* Must be equal to width */
+  border: 2px solid black; /* Adjust border thickness and color */
+  border-radius: 50%;
+  display: inline-block; /* Allows circles to sit next to each other */
+  margin: 10px; /* Adjust spacing between circles */
+}
+
+.nav-dot:hover {
+  cursor: pointer;
+}
+
+.nav-dot.active {
+  background-color: black;
+}
