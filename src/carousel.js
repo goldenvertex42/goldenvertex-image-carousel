@@ -6,6 +6,7 @@ export const carousel = (containerSelector, images, nextBtnSelector, prevBtnSele
     let currentIndex = 0;
     let totalSlides = images.length;
     const sliderDiv = document.querySelector('.slider');
+    let autoPlayTimer;
 
     const init = () => {
         const container = document.querySelector(containerSelector);
@@ -38,10 +39,12 @@ export const carousel = (containerSelector, images, nextBtnSelector, prevBtnSele
             sliderDiv.style.left = newLeft + 'vw';
             currentIndex = (currentIndex + 1) % totalSlides;
             updateActiveSlide(currentIndex);
+            resetTimer();
         } else {
             sliderDiv.style.left = 0;
             currentIndex = 0;
             updateActiveSlide(currentIndex);
+            resetTimer();
         }
     };
 
@@ -52,11 +55,13 @@ export const carousel = (containerSelector, images, nextBtnSelector, prevBtnSele
             sliderDiv.style.left = newLeft + 'vw';
             currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
             updateActiveSlide(currentIndex);
+            resetTimer();
         } else {
             currentIndex = images.length - 1;
             const newLeft = currentIndex * 25;
             sliderDiv.style.left = -newLeft + 'vw';
             updateActiveSlide(currentIndex);
+            resetTimer();
         }
     };
 
@@ -65,9 +70,26 @@ export const carousel = (containerSelector, images, nextBtnSelector, prevBtnSele
         sliderDiv.style.left = -newLeft + 'vw';
         currentIndex = index;
         updateActiveSlide(currentIndex);
+        resetTimer();
     };
 
+    const startTimer = (interval = 5000) => {
+        autoPlayTimer = setInterval(nextSlide, interval);
+    };
 
+    const stopTimer = () => {
+        clearInterval(autoPlayTimer);
+    };
+
+    const resetTimer = () => {
+        stopTimer();
+        startTimer();
+    };
+
+    sliderDiv.addEventListener('mouseenter', stopTimer);
+    sliderDiv.addEventListener('mouseleave', resetTimer);
+
+    startTimer();
 
     return { init };
 };
